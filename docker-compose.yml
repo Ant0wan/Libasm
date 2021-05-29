@@ -1,0 +1,8 @@
+version: "3"
+services:
+  cli:
+    build: .
+    volumes:
+      - .:/libasm
+    stdin_open: true
+    tty: true
