@@ -14,6 +14,7 @@ FROM rust:1.40
 LABEL maintainer "abarthel <abarthel@student.42.fr>"
 RUN apt update && apt install -y \
 	nasm \
+	make \
 	vim \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /root/.vim/plugin/
