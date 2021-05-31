@@ -1,13 +1,14 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_strlen.s                                        :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/29 13:51:10 by abarthel          #+#    #+#              #
-#    Updated: 2021/05/29 13:51:11 by abarthel         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+section	.text
+global	_ft_strlen
 
 
+_ft_strlen:
+			xor		rax, rax			; i = 0
+			jmp		compare
+increment:
+			inc		rax					; i++
+compare:
+			cmp		BYTE [rdi + rax], 0	; str[i] == 0
+			jne		increment
+done:
+			ret
