@@ -6,7 +6,7 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/29 11:56:30 by abarthel          #+#    #+#              #
-#    Updated: 2021/05/31 13:12:06 by abarthel         ###   ########.fr        #
+#    Updated: 2021/06/05 18:00:22 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,12 @@ $(NAME): $(OBJECTS)
 	ranlib $(NAME)
 
 clean:
-	$(RM) $(OBJECTS) $(DEPENDS)
+	$(RM) $(OBJECTS)
+	#$(RM) $(OBJECTS) $(DEPENDS)
 
-fclean:
-	$(RM) $(OBJECTS) $(DEPENDS) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
+	#$(RM) $(OBJECTS) $(DEPENDS)$(NAME)
 
 re: fclean $(NAME)
 
