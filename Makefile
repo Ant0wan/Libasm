@@ -1,36 +1,36 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/29 11:56:30 by abarthel          #+#    #+#              #
-#    Updated: 2021/06/05 18:00:22 by abarthel         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME		:= libasm
 
--include libasm.mk
+include	makefile.conf
 
-.PHONY: all clean fclean re
+.PHONY:		all clean fclean re
+
+OBJS		= $(SOURCE:.s=.o)
+DEPS		= $(SOURCE:.s=.d)
+OUTPUT_OPTION	= -MMD -MP -o $@
+
+-include ${DEPS}
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+$(NAME): $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 clean:
-	$(RM) $(OBJECTS)
-	#$(RM) $(OBJECTS) $(DEPENDS)
+	rm -f $(OBJS) $(DEPS)
 
 fclean: clean
-	$(RM) $(NAME)
-	#$(RM) $(OBJECTS) $(DEPENDS)$(NAME)
+	rm -f $(NAME)
 
 re: fclean $(NAME)
 
--include $(OBJECTS)
+ctags:
+	ctags -R *
 
-%.o: %.s Makefile $(addsuffix .mk, $(basename $(NAME)))
-	$(AS) $(ASLAGS) $< -o $@
+container: $(NAME)
+
+help:
+	-@echo "clean       - delete .o and .d files"
+	-@echo "fclean      - execute make clean and delete binaries"
+	-@echo "ctags       - generates vim tags"
+	-@echo "container   - create docker image"

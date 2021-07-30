@@ -1,0 +1,16 @@
+AC_INIT()
+
+AC_CHECK_PROGS(ASM, [nasm], [""])
+AC_SUBST(ASM)
+
+AC_CHECK_PROGS(LD, [ld], [""])
+AC_SUBST(LD)
+
+AC_CHECK_PROGS(AR, [ar], [""])
+AC_SUBST(AR)
+
+AC_CHECK_HEADERS(stdio.h)
+AC_CHECK_HEADERS(stdlib.h)
+
+AC_CONFIG_FILES([makefile.conf])
+AC_OUTPUT

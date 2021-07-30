@@ -1,0 +1,9 @@
+#SOURCES_PATH	:= ./src/
+#SOURCES		:= $(wildcard ./src/*.s)
+LD		:= @LD@
+LDFLAGS		:= -g
+AS		:= @ASM@
+ASFLAGS		:= -f elf64 -g
+AR		:= @AR@
+ARFLAGS		:= rc
+SOURCE		:= $(wildcard ./src/*.s)
