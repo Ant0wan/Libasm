@@ -1,12 +1,15 @@
 AC_INIT()
 
-AC_CHECK_PROGS(ASM, [nasm], [""])
+AC_CHECK_PROGS(MAKE, [make])
+AS_IF([test x"$MAKE" != x"yes"], [AC_MSG_ERROR([Cannot find make.])])
+AC_CHECK_PROGS(ASM, [nasm])
+AS_IF([test x"$ASM" != x"yes"], [AC_MSG_ERROR([Cannot find nasm.])])
 AC_SUBST(ASM)
-
-AC_CHECK_PROGS(LD, [ld], [""])
+AC_CHECK_PROGS(LD, [ld])
+AS_IF([test x"$LD" != x"yes"], [AC_MSG_ERROR([Cannot find ld.])])
 AC_SUBST(LD)
 
-AC_CHECK_PROGS(AR, [ar], [""])
+AC_CHECK_PROGS(AR, [ar])
 AC_SUBST(AR)
 
 AC_CHECK_HEADERS(stdio.h)

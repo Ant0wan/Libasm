@@ -1,5 +1,3 @@
-#SOURCES_PATH	:= ./src/
-#SOURCES		:= $(wildcard ./src/*.s)
 LD		:= @LD@
 LDFLAGS		:= -g
 AS		:= @ASM@
