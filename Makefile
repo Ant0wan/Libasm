@@ -1,14 +1,9 @@
-NAME		:= libasm
+NAME		:= libasm.a
 
 include	makefile.conf
 
 .PHONY:		all clean fclean re
-
 OBJS		= $(SOURCE:.s=.o)
-DEPS		= $(SOURCE:.s=.d)
-OUTPUT_OPTION	= -MMD -MP -o $@
-
--include ${DEPS}
 
 all: $(NAME)
 
@@ -17,7 +12,7 @@ $(NAME): $(OBJS)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS) $(DEPS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
