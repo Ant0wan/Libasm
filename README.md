@@ -12,3 +12,9 @@
     <a href="https://github.com/Ant0wan/Libasm/issues">Request Feature</a>
   </p>
 </p>
+
+---
+
+### Doc
+https://cs.lmu.edu/~ray/notes/nasmtutorial/
+http://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
