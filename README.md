@@ -18,3 +18,8 @@
 ### Doc
 https://cs.lmu.edu/~ray/notes/nasmtutorial/
 http://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
+
+
+https://cs.lmu.edu/~ray/notes/nasmtutorial/
+https://asmtutor.com/
+https://www.youtube.com/watch?v=_JG4b7E_6-E
